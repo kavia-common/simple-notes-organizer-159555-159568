@@ -1,75 +1,72 @@
-# Nuxt Minimal Starter
+# Notes Frontend (Nuxt 3)
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A modern, minimalistic notes organizer app with authentication, notes CRUD, search & filter, responsive layout, and organization via folders and tags.
+
+- Sidebar for navigation and filters (All, Pinned, Untagged, Folders, Tags)
+- Main area for note list and editor
+- Header with global search and quick actions
+- Light theme with primary (#1976d2), secondary (#424242), and accent (#e91e63)
+
+## Features
+
+- User authentication (demo): local storage-based login/registration
+- Create, edit, delete notes
+- Tags and folders organization
+- Search by title/content/tag
+- Pinned notes
+- Responsive design
+
+## Environment Variables
+
+Create a `.env` file using the template below:
+
+```
+cp .env.example .env
+```
+
+Available variables:
+
+- `NUXT_PUBLIC_APP_NAME` – App name shown in header
+- `NUXT_PUBLIC_SITE_URL` – Base site URL (for metadata)
+- `NUXT_PUBLIC_STORAGE_PREFIX` – Prefix for localStorage keys
+- `NUXT_PUBLIC_DEMO_MODE` – Optional boolean flag (reserved)
 
 ## Setup
 
-Make sure to install dependencies:
+Install dependencies:
 
 ```bash
 # npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+Run dev server at http://localhost:3000:
 
 ```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
-
-Build the application for production:
+Build for production:
 
 ```bash
-# npm
 npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
 npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Security Notice
+
+This frontend uses client-side localStorage for demo authentication and data persistence. Do not store real credentials or sensitive information. Integrate with a secure backend for production use.
+
+## Project Structure
+
+- `layouts/default.vue` – App shell (header, sidebar, main)
+- `pages/login.vue` – Auth page
+- `pages/index.vue` – Main page (content rendered via layout)
+- `components/` – UI components (HeaderBar, SidebarNav, NoteList, NoteEditor)
+- `composables/` – `useAuth`, `useNotes`, `useStorage`
+- `types/` – TypeScript models
+- `assets/css/main.css` – Global styles and theme
+
+## License
+
+MIT
